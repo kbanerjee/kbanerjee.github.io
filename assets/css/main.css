@@ -1,0 +1,47 @@
+/* ============================================================
+   Custom global tweaks layered on top of Tailwind
+   ============================================================ */
+
+/* 1. Skip-link (visible only when focused) */
+.skip-link {
+  @apply absolute left-4 top-4 -translate-y-full bg-indigo-700 text-white px-4 py-2 rounded-md z-50 transition-transform duration-300;
+}
+.skip-link:focus {
+  @apply translate-y-0 outline-none;
+}
+
+/* 2. Grain / noise overlay used on hero for subtle texture */
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 250 250'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23noiseFilter)' opacity='0.14'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* 3. Motion-safe fade-in + lift animation (used with JS) */
+@keyframes fade-up {
+  0%   { opacity: 0; transform: translateY(32px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.motion-safe .animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.motion-reduce .animate-fade-up {
+  animation: none;
+}
+
+/* 4. Mobile nav slide-in panel */
+@keyframes slide-from-right {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+.mobile-nav-enter {
+  animation: slide-from-right 300ms ease-out forwards;
+}
+
+/* 5. Card hover-lift shared utility (extends Tailwind) */
+.lift-hover {
+  @apply transform transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl;
+}

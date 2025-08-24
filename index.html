@@ -1,130 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kalyan Banerjee - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .fade-in { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-  </style>
+
+  <title>Kalyan Banerjee – Cloud Architect & AI Enthusiast</title>
+  <meta name="description" content="Portfolio of Kalyan Banerjee – Senior Principal Consultant at Oracle, Cloud Architect, Generative AI Enthusiast. Explore my expertise, projects, publications, and download my resume." />
+  <link rel="canonical" href="https://kbanerjee.github.io/" />
+
+  <!-- Tailwind via CDN (JIT) -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+
+  <!-- Custom global CSS -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+
+  <!-- Favicon (optional) -->
+  <!-- <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" /> -->
+
+  <!-- OpenGraph / Twitter -->
+  <meta property="og:title" content="Kalyan Banerjee – Portfolio" />
+  <meta property="og:description" content="Cloud Architect & Generative AI Enthusiast" />
+  <meta property="og:image" content="assets/img/og-image.png" />
+  <meta property="og:type" content="website" />
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-900 antialiased relative">
 
-  <!-- Hero Section -->
-  <section class="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white text-center px-6">
-    <h1 class="text-6xl font-extrabold tracking-tight drop-shadow-lg">Hi, I'm Kalyan Banerjee 👋</h1>
-    <p class="mt-6 text-2xl max-w-2xl leading-relaxed">Senior Principal Consultant @ Oracle | Cloud Architect | Generative AI Enthusiast</p>
-    <a href="#about" class="mt-8 px-8 py-4 bg-white text-indigo-700 font-semibold rounded-full shadow-xl hover:bg-gray-200 transition-transform transform hover:scale-105">
-      Explore My Work
-    </a>
-  </section>
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <!-- About Section -->
-  <section id="about" class="max-w-5xl mx-auto p-10 fade-in">
-    <h2 class="text-4xl font-bold mb-6 text-indigo-700">About Me</h2>
-    <p class="text-lg leading-relaxed text-gray-700">
-      I bring over a decade of experience in driving digital transformation, focusing on 
-      designing and delivering <strong>cloud-native enterprise applications</strong> that are scalable, secure, and future-ready.  
-      My expertise lies in <strong>Oracle Cloud Infrastructure (OCI)</strong> and integrating advanced 
-      <strong>AI/ML capabilities</strong> to solve real-world challenges.
-    </p>
-    <p class="mt-4 text-lg text-gray-700">
-      I have published <strong>4 international journal papers</strong>, <strong>2 conference papers</strong>, and received <strong>26+ citations</strong>.  
-      I enjoy exploring Generative AI, Cloud Security, and Autonomous Agents.  
-    </p>
-  </section>
+  <!-- ================== HEADER & NAV ================== -->
+  <header class="fixed inset-x-0 top-0 z-40 bg-white/70 backdrop-blur border-b border-gray-200">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 md:py-4">
+      <a href="#hero" class="font-semibold text-indigo-700 text-lg">Kalyan B.</a>
 
-  <!-- Skills Section -->
-  <section id="skills" class="bg-gradient-to-r from-gray-100 to-gray-200 py-16 fade-in">
-    <div class="max-w-5xl mx-auto p-10">
-      <h2 class="text-4xl font-bold mb-8 text-indigo-700">Core Expertise</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
-          ☁️ Cloud Architecture & DevOps (OCI, CI/CD, Jenkins, Git)
-        </div>
-        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
-          🤖 AI & Machine Learning (Generative AI, NLP, Deep Learning)
-        </div>
-        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
-          ⚡ Microservices & Containerization (Kubernetes, Docker, Istio)
-        </div>
-        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
-          📊 Observability & Monitoring (Prometheus, Grafana, ELK Stack)
-        </div>
-        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
-          🔐 Cloud Security & Identity (IDCS, Multi-Tenant Design)
-        </div>
-        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
-          🛰️ Serverless & API Architectures
-        </div>
-      </div>
+      <!-- Desktop Links -->
+      <ul class="hidden md:flex items-center gap-6 font-medium">
+        <li><a href="#about"        data-scrollspy class="hover:text-indigo-600">About</a></li>
+        <li><a href="#skills"       data-scrollspy class="hover:text-indigo-600">Skills</a></li>
+        <li><a href="#experience"   data-scrollspy class="hover:text-indigo-600">Experience</a></li>
+        <li><a href="#publications" data-scrollspy class="hover:text-indigo-600">Publications</a></li>
+        <li><a href="#contact"      data-scrollspy class="hover:text-indigo-600">Contact</a></li>
+        <li>
+          <a href="assets/pdf/Kalyan_Banerjee_Resume.pdf"
+             download
+             class="ml-3 inline-flex items-center gap-1 px-4 py-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+            </svg>
+            CV
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile Burger -->
+      <button id="nav-toggle"
+              class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              aria-label="Open menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Panel -->
+    <div id="mobile-nav" class="hidden md:hidden fixed inset-y-0 right-0 w-64 bg-white shadow-lg border-l border-gray-200 p-6 space-y-6">
+      <a href="#about"        class="block font-medium hover:text-indigo-600">About</a>
+      <a href="#skills"       class="block font-medium hover:text-indigo-600">Skills</a>
+      <a href="#experience"   class="block font-medium hover:text-indigo-600">Experience</a>
+      <a href="#publications" class="block font-medium hover:text-indigo-600">Publications</a>
+      <a href="#contact"      class="block font-medium hover:text-indigo-600">Contact</a>
+      <a href="assets/pdf/Kalyan_Banerjee_Resume.pdf" download class="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700">
+        Download CV
+      </a>
     </div>
-  </section>
+  </header>
 
-  <!-- Experience Section -->
-  <section id="experience" class="max-w-5xl mx-auto p-10 fade-in">
-    <h2 class="text-4xl font-bold mb-8 text-indigo-700">Experience</h2>
-    <div class="space-y-6">
-      <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
-        <h3 class="text-2xl font-semibold">Senior Principal Consultant @ Oracle</h3>
-        <p class="text-gray-600">Dec 2014 – Present | Bengaluru, India</p>
-        <p class="mt-2 text-gray-700">Leading cloud-native enterprise application design on OCI with AI/ML integration.</p>
+  <!-- ================== MAIN ================== -->
+  <main id="main-content" class="pt-20 md:pt-24">
+    <!-- HERO -->
+    <section id="hero" class="relative flex flex-col items-center justify-center min-h-[90vh] px-6 text-center text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 overflow-hidden noise">
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight drop-shadow-lg max-w-3xl">Hi, I'm Kalyan Banerjee 👋</h1>
+      <p class="mt-6 text-xl sm:text-2xl max-w-2xl leading-relaxed">Senior Principal Consultant @ Oracle · Cloud Architect · Generative AI Enthusiast</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a href="#about" class="px-8 py-4 bg-white text-indigo-700 font-semibold rounded-full shadow-xl hover:bg-gray-100 transform hover:-translate-y-1 transition">
+          Explore My Work
+        </a>
+        <a href="assets/pdf/Kalyan_Banerjee_Resume.pdf" download class="px-8 py-4 bg-indigo-100 text-indigo-900 font-semibold rounded-full shadow hover:bg-indigo-200 transform hover:-translate-y-1 transition">
+          Download CV
+        </a>
       </div>
-      <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-5xl mx-auto px-6 py-20 md:py-32" data-reveal>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-indigo-700">About Me</h2>
+      <p class="prose lg:prose-lg text-gray-700">
+        I bring over a decade of experience in driving digital transformation, focusing on designing and delivering
+        <strong>cloud-native enterprise applications</strong> that are scalable, secure, and future-ready. My expertise
+        lies in <strong>Oracle Cloud Infrastructure (OCI)</strong> and integrating advanced <strong>AI/ML capabilities</strong>
+        to solve real-world challenges.
+      </p>
+      <p class="prose lg:prose-lg text-gray-700 mt-4">
+        I have published <strong>4 international journal papers</strong>, <strong>2 conference papers</strong>,
+        and received <strong>26+ citations</strong>. I enjoy exploring Generative AI, Cloud Security, and Autonomous Agents.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="bg-gradient-to-r from-gray-100 to-gray-200 py-20 md:py-32" data-reveal>
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10 text-indigo-700">Core Expertise</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="p-6 bg-white shadow-xl rounded-2xl lift-hover">☁️ Cloud Architecture & DevOps (OCI, CI/CD, Jenkins, Git)</div>
+          <div class="p-6 bg-white shadow-xl rounded-2xl lift-hover">🤖 AI & Machine Learning (Generative AI, NLP, Deep Learning)</div>
+          <div class="p-6 bg-white shadow-xl rounded-2xl lift-hover">⚡ Microservices & Containerization (Kubernetes, Docker, Istio)</div>
+          <div class="p-6 bg-white shadow-xl rounded-2xl lift-hover">📊 Observability & Monitoring (Prometheus, Grafana, ELK Stack)</div>
+          <div class="p-6 bg-white shadow-xl rounded-2xl lift-hover">🔐 Cloud Security & Identity (IDCS, Multi-Tenant Design)</div>
+          <div class="p-6 bg-white shadow-xl rounded-2xl lift-hover">🛰️ Serverless & API Architectures</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="max-w-5xl mx-auto px-6 py-20 md:py-32 space-y-8" data-reveal>
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-indigo-700">Experience</h2>
+      <article class="p-6 bg-white rounded-2xl shadow-lg lift-hover">
+        <h3 class="text-2xl font-semibold">Senior Principal Consultant @ Oracle</h3>
+        <p class="text-gray-600">Dec 2014 – Present · Bengaluru, India</p>
+        <p class="mt-2 text-gray-700">Leading cloud-native enterprise application design on OCI with AI/ML integration.</p>
+      </article>
+      <article class="p-6 bg-white rounded-2xl shadow-lg lift-hover">
         <h3 class="text-2xl font-semibold">Avionics Engineer @ Parker Aerospace</h3>
         <p class="text-gray-600">Jan 2014 – Dec 2014</p>
         <p class="mt-2 text-gray-700">System integration and validation of avionics components, automation with Embedded C/C++.</p>
-      </div>
-      <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
+      </article>
+      <article class="p-6 bg-white rounded-2xl shadow-lg lift-hover">
         <h3 class="text-2xl font-semibold">Research Associate @ IIT Kanpur</h3>
         <p class="text-gray-600">Aug 2013 – Jan 2014</p>
-        <p class="mt-2 text-gray-700">Worked on Automated Speech Recognition (ASR) for IVR systems and FreeSwitch telephony infrastructure.</p>
+        <p class="mt-2 text-gray-700">Worked on Automated Speech Recognition for IVR systems and FreeSwitch telephony infrastructure.</p>
+      </article>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="bg-gradient-to-r from-gray-100 to-gray-200 py-20 md:py-32" data-reveal>
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-indigo-700">Publications</h2>
+        <ul class="list-disc list-inside text-lg space-y-2 text-gray-700">
+          <li>SVM Based Model for Spectral Mapping in Voice Conversion Framework</li>
+          <li>Topology Management on Mobile Ad-Hoc Networks</li>
+          <li>A Pitch Synchronous Approach to Design Voice Conversion System</li>
+          <li>Algorithm for Denoising Color Images Corrupted by Impulse Noise</li>
+          <li>Comparing ANN and Gaussian Mixture Models in Voice Conversion</li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Publications Section -->
-  <section id="publications" class="bg-gradient-to-r from-gray-100 to-gray-200 py-16 fade-in">
-    <div class="max-w-5xl mx-auto p-10">
-      <h2 class="text-4xl font-bold mb-8 text-indigo-700">Publications</h2>
-      <ul class="list-disc list-inside text-lg space-y-2 text-gray-700">
-        <li>SVM Based Model for Spectral Mapping in Voice Conversion Framework</li>
-        <li>Topology Management on Mobile Ad-Hoc Networks</li>
-        <li>A Pitch Synchronous Approach to Design Voice Conversion System</li>
-        <li>Algorithm for Denoising Color Images Corrupted by Impulse Noise</li>
-        <li>Comparing ANN and Gaussian Mixture Models in Voice Conversion</li>
-      </ul>
-    </div>
-  </section>
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-5xl mx-auto px-6 py-20 md:py-32 text-center" data-reveal>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-indigo-700">Contact</h2>
+      <p class="text-lg mb-2">📧 <a href="mailto:kbanerjee.ece@gmail.com" class="text-indigo-600 hover:underline">kbanerjee.ece@gmail.com</a></p>
+      <p class="text-lg mb-2">🔗 <a href="https://www.linkedin.com/in/kbanerji" class="text-indigo-600 hover:underline">linkedin.com/in/kbanerji</a></p>
+      <p class="text-lg">💻 <a href="https://github.com/yourusername" class="text-indigo-600 hover:underline">github.com/yourusername</a></p>
+    </section>
+  </main>
 
-  <!-- Contact Section -->
-  <section id="contact" class="max-w-5xl mx-auto p-10 fade-in text-center">
-    <h2 class="text-4xl font-bold mb-6 text-indigo-700">Contact</h2>
-    <p class="text-lg">📧 <a href="mailto:kbanerjee.ece@gmail.com" class="text-indigo-600 hover:underline">kbanerjee.ece@gmail.com</a></p>
-    <p class="text-lg">🔗 <a href="https://www.linkedin.com/in/kbanerji" class="text-indigo-600 hover:underline">linkedin.com/in/kbanerji</a></p>
-    <p class="text-lg">💻 <a href="https://github.com/yourusername" class="text-indigo-600 hover:underline">github.com/yourusername</a></p>
-  </section>
-
-  <footer class="text-center py-6 bg-gray-900 text-gray-300">
+  <!-- ================== FOOTER ================== -->
+  <footer class="text-center py-8 bg-gray-900 text-gray-300">
     © 2025 Kalyan Banerjee. All Rights Reserved.
   </footer>
 
-  <!-- Scroll Animations -->
-  <script>
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.2 };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
+  <!-- JSON-LD Structured Data for Resume -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Kalyan Banerjee – Resume",
+    "url": "https://kbanerjee.github.io/assets/pdf/Kalyan_Banerjee_Resume.pdf",
+    "author": {
+      "@type": "Person",
+      "name": "Kalyan Banerjee"
+    },
+    "fileFormat": "application/pdf"
+  }
   </script>
+
+  <!-- Custom JS -->
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
