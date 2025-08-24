@@ -43,16 +43,5 @@
 
 /* 5. Card hover-lift shared utility (extends Tailwind) */
 .lift-hover {
-  @apply transform transition-transform duration-300 ease-out hover:-translate-y-1 hover:rotate-1 hover:shadow-2xl;
-}
-
-/* 6. Hero gradient animation */
-@keyframes gradient-x {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
-}
-.hero-animated {
-  @apply bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600;
-  background-size: 200% 200%;
-  animation: gradient-x 8s ease infinite;
+  @apply transform transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl;
 }
