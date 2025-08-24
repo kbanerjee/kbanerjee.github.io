@@ -5,75 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kalyan Banerjee - Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-50 text-gray-900 font-sans">
+
   <!-- Hero Section -->
-  <section class="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-    <h1 class="text-5xl font-bold">Hi, I'm Kalyan Banerjee 👋</h1>
-    <p class="mt-4 text-xl">Senior Principal Consultant @ Oracle | Cloud Architect</p>
-    <a href="#about" class="mt-6 px-6 py-3 bg-white text-blue-600 font-semibold rounded-full shadow hover:bg-gray-200">
+  <section class="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white text-center px-6">
+    <h1 class="text-6xl font-extrabold tracking-tight drop-shadow-lg">Hi, I'm Kalyan Banerjee 👋</h1>
+    <p class="mt-6 text-2xl max-w-2xl leading-relaxed">Senior Principal Consultant @ Oracle | Cloud Architect | Generative AI Enthusiast</p>
+    <a href="#about" class="mt-8 px-8 py-4 bg-white text-indigo-700 font-semibold rounded-full shadow-xl hover:bg-gray-200 transition-transform transform hover:scale-105">
       Explore My Work
     </a>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="max-w-4xl mx-auto p-8">
-    <h2 class="text-3xl font-bold mb-4">About Me</h2>
-    <p class="text-lg leading-relaxed">
+  <section id="about" class="max-w-5xl mx-auto p-10 fade-in">
+    <h2 class="text-4xl font-bold mb-6 text-indigo-700">About Me</h2>
+    <p class="text-lg leading-relaxed text-gray-700">
       I bring over a decade of experience in driving digital transformation, focusing on 
       designing and delivering <strong>cloud-native enterprise applications</strong> that are scalable, secure, and future-ready.  
       My expertise lies in <strong>Oracle Cloud Infrastructure (OCI)</strong> and integrating advanced 
-      <strong>AI/ML capabilities</strong> to solve real-world challenges.  
+      <strong>AI/ML capabilities</strong> to solve real-world challenges.
     </p>
-    <p class="mt-4 text-lg">
+    <p class="mt-4 text-lg text-gray-700">
       I have published <strong>4 international journal papers</strong>, <strong>2 conference papers</strong>, and received <strong>26+ citations</strong>.  
       I enjoy exploring Generative AI, Cloud Security, and Autonomous Agents.  
     </p>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="bg-gray-200 py-12">
-    <div class="max-w-4xl mx-auto p-8">
-      <h2 class="text-3xl font-bold mb-6">Core Expertise</h2>
-      <ul class="grid md:grid-cols-2 gap-6 text-lg">
-        <li>☁️ Cloud Architecture & DevOps (OCI, CI/CD, Jenkins, Git)</li>
-        <li>🤖 AI & Machine Learning (Generative AI, NLP, Deep Learning)</li>
-        <li>⚡ Microservices & Containerization (Kubernetes, Docker, Istio)</li>
-        <li>📊 Observability & Monitoring (Prometheus, Grafana, ELK Stack)</li>
-        <li>🔐 Cloud Security & Identity (IDCS, Multi-Tenant Design)</li>
-        <li>🛰️ Serverless & API Architectures</li>
-      </ul>
+  <section id="skills" class="bg-gradient-to-r from-gray-100 to-gray-200 py-16 fade-in">
+    <div class="max-w-5xl mx-auto p-10">
+      <h2 class="text-4xl font-bold mb-8 text-indigo-700">Core Expertise</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+          ☁️ Cloud Architecture & DevOps (OCI, CI/CD, Jenkins, Git)
+        </div>
+        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+          🤖 AI & Machine Learning (Generative AI, NLP, Deep Learning)
+        </div>
+        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+          ⚡ Microservices & Containerization (Kubernetes, Docker, Istio)
+        </div>
+        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+          📊 Observability & Monitoring (Prometheus, Grafana, ELK Stack)
+        </div>
+        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+          🔐 Cloud Security & Identity (IDCS, Multi-Tenant Design)
+        </div>
+        <div class="p-6 bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-transform transform hover:-translate-y-2">
+          🛰️ Serverless & API Architectures
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="max-w-4xl mx-auto p-8">
-    <h2 class="text-3xl font-bold mb-6">Experience</h2>
-
-    <div class="mb-6">
-      <h3 class="text-xl font-semibold">Senior Principal Consultant @ Oracle</h3>
-      <p class="text-gray-700">Dec 2014 – Present | Bengaluru, India</p>
-      <p class="mt-2">Leading cloud-native enterprise application design on OCI with AI/ML integration.</p>
-    </div>
-
-    <div class="mb-6">
-      <h3 class="text-xl font-semibold">Avionics Engineer @ Parker Aerospace</h3>
-      <p class="text-gray-700">Jan 2014 – Dec 2014</p>
-      <p class="mt-2">System integration and validation of avionics components, automation with Embedded C/C++.</p>
-    </div>
-
-    <div class="mb-6">
-      <h3 class="text-xl font-semibold">Research Associate @ IIT Kanpur</h3>
-      <p class="text-gray-700">Aug 2013 – Jan 2014</p>
-      <p class="mt-2">Worked on Automated Speech Recognition (ASR) for IVR systems and FreeSwitch telephony infrastructure.</p>
+  <section id="experience" class="max-w-5xl mx-auto p-10 fade-in">
+    <h2 class="text-4xl font-bold mb-8 text-indigo-700">Experience</h2>
+    <div class="space-y-6">
+      <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-2xl font-semibold">Senior Principal Consultant @ Oracle</h3>
+        <p class="text-gray-600">Dec 2014 – Present | Bengaluru, India</p>
+        <p class="mt-2 text-gray-700">Leading cloud-native enterprise application design on OCI with AI/ML integration.</p>
+      </div>
+      <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-2xl font-semibold">Avionics Engineer @ Parker Aerospace</h3>
+        <p class="text-gray-600">Jan 2014 – Dec 2014</p>
+        <p class="mt-2 text-gray-700">System integration and validation of avionics components, automation with Embedded C/C++.</p>
+      </div>
+      <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-2xl font-semibold">Research Associate @ IIT Kanpur</h3>
+        <p class="text-gray-600">Aug 2013 – Jan 2014</p>
+        <p class="mt-2 text-gray-700">Worked on Automated Speech Recognition (ASR) for IVR systems and FreeSwitch telephony infrastructure.</p>
+      </div>
     </div>
   </section>
 
   <!-- Publications Section -->
-  <section id="publications" class="bg-gray-200 py-12">
-    <div class="max-w-4xl mx-auto p-8">
-      <h2 class="text-3xl font-bold mb-6">Publications</h2>
-      <ul class="list-disc list-inside space-y-2">
+  <section id="publications" class="bg-gradient-to-r from-gray-100 to-gray-200 py-16 fade-in">
+    <div class="max-w-5xl mx-auto p-10">
+      <h2 class="text-4xl font-bold mb-8 text-indigo-700">Publications</h2>
+      <ul class="list-disc list-inside text-lg space-y-2 text-gray-700">
         <li>SVM Based Model for Spectral Mapping in Voice Conversion Framework</li>
         <li>Topology Management on Mobile Ad-Hoc Networks</li>
         <li>A Pitch Synchronous Approach to Design Voice Conversion System</li>
@@ -84,15 +102,29 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="max-w-4xl mx-auto p-8">
-    <h2 class="text-3xl font-bold mb-4">Contact</h2>
-    <p>Email: <a href="mailto:kbanerjee.ece@gmail.com" class="text-blue-600">kbanerjee.ece@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/kbanerji" class="text-blue-600">linkedin.com/in/kbanerji</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername" class="text-blue-600">github.com/yourusername</a></p>
+  <section id="contact" class="max-w-5xl mx-auto p-10 fade-in text-center">
+    <h2 class="text-4xl font-bold mb-6 text-indigo-700">Contact</h2>
+    <p class="text-lg">📧 <a href="mailto:kbanerjee.ece@gmail.com" class="text-indigo-600 hover:underline">kbanerjee.ece@gmail.com</a></p>
+    <p class="text-lg">🔗 <a href="https://www.linkedin.com/in/kbanerji" class="text-indigo-600 hover:underline">linkedin.com/in/kbanerji</a></p>
+    <p class="text-lg">💻 <a href="https://github.com/yourusername" class="text-indigo-600 hover:underline">github.com/yourusername</a></p>
   </section>
 
-  <footer class="text-center py-6 bg-gray-800 text-white">
+  <footer class="text-center py-6 bg-gray-900 text-gray-300">
     © 2025 Kalyan Banerjee. All Rights Reserved.
   </footer>
+
+  <!-- Scroll Animations -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
