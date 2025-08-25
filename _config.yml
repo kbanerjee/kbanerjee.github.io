@@ -1,0 +1,18 @@
+title: "Kalyan Banerjee"
+description: "Software Engineer Portfolio"
+remote_theme: pages-themes/minimal@v0.2.0
+
+# Pages to appear in the top navigation bar (order matters)
+header_pages:
+  - about.md
+  - projects.md
+  - resume.md
+  - contact.md
+
+# Plugins pre-enabled on GitHub Pages; listed here for completeness
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Build settings
+markdown: kramdown
