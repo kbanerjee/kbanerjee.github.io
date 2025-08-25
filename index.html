@@ -1,1 +1,129 @@
-Kalyan Banerjee
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Kalyan Banerjee</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Icons (Feather) -->
+    <script
+      defer
+      src="https://unpkg.com/feather-icons/dist/feather.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <!-- ===== Hero ===== -->
+    <header class="hero">
+      <h1>Kalyan Banerjee</h1>
+      <p class="tagline">Software Engineer • Tech Enthusiast • Lifelong Learner</p>
+
+      <div class="social">
+        <a
+          href="https://github.com/kbanerjee"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener"
+          ><i data-feather="github"></i
+        ></a>
+        <a
+          href="https://linkedin.com/in/kalyan-banerjee"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener"
+          ><i data-feather="linkedin"></i
+        ></a>
+        <a href="mailto:kalyan@example.com" aria-label="Email"
+          ><i data-feather="mail"></i
+        ></a>
+      </div>
+    </header>
+
+    <!-- ===== Main ===== -->
+    <main>
+      <!-- About -->
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          I’m a software engineer specializing in building exceptional digital
+          experiences. Currently focused on full-stack JavaScript/TypeScript and
+          cloud-native architectures. When I’m not coding, you’ll find me
+          exploring new tech blogs or hiking nature trails.
+        </p>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="project-list">
+          <article class="project">
+            <h3>Awesome App</h3>
+            <p>
+              A React + Node.js application that helps users track daily habits
+              with insightful analytics.
+            </p>
+            <a
+              href="https://github.com/kbanerjee/awesome-app"
+              class="btn"
+              target="_blank"
+              rel="noopener"
+              >View Code</a
+            >
+          </article>
+
+          <article class="project">
+            <h3>Data Viz Dashboard</h3>
+            <p>
+              Interactive dashboard built with D3.js for real-time data
+              visualization.
+            </p>
+            <a
+              href="https://github.com/kbanerjee/data-viz-dashboard"
+              class="btn"
+              target="_blank"
+              rel="noopener"
+              >View Code</a
+            >
+          </article>
+
+          <article class="project">
+            <h3>Open-Source CLI</h3>
+            <p>
+              A cross-platform command-line tool that simplifies Git workflow
+              automation.
+            </p>
+            <a
+              href="https://github.com/kbanerjee/oss-cli"
+              class="btn"
+              target="_blank"
+              rel="noopener"
+              >View Code</a
+            >
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+      <p>
+        © <span id="year"></span> Kalyan Banerjee • Built with ♥ and GitHub
+        Pages
+      </p>
+    </footer>
+
+    <script>
+      // Inject current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+      // Replace <i data-feather> with SVGs
+      feather.replace();
+    </script>
+  </body>
+</html>
