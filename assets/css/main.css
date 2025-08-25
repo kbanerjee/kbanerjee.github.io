@@ -45,3 +45,12 @@
 .lift-hover {
   @apply transform transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl;
 }
+
+/* 6. Navigation link utilities */
+.nav-link {
+  @apply text-gray-600 hover:text-indigo-600 dark:text-gray-300 transition-colors;
+}
+
+.mobile-link {
+  @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-700 transition-colors;
+}
