@@ -1,0 +1,269 @@
+---
+layout: default
+---
+
+<header class="hero section reveal" id="top" aria-label="Intro">
+  <div class="container">
+    <p class="eyebrow">Cloud Architecture · AI/ML · Leadership</p>
+    <h1 class="hero__title">
+      {{ site.data.resume.profile.name }}
+    </h1>
+    <p class="hero__subtitle">
+      {{ site.data.resume.profile.title }}
+    </p>
+
+    <div class="hero__actions">
+      {% if site.author.linkedin %}
+      <a class="btn btn--primary" href="{{ site.author.linkedin }}" target="_blank" rel="noopener">
+        <i data-feather="linkedin" aria-hidden="true"></i> Connect on LinkedIn
+      </a>
+      {% endif %}
+      <a class="btn btn--ghost" href="mailto:{{ site.author.email }}">
+        <i data-feather="mail" aria-hidden="true"></i> Email Me
+      </a>
+      {% comment %}
+      To enable, place resume.pdf at repo root and uncomment:
+      <a class="btn btn--ghost" href="{{ '/resume.pdf' | relative_url }}" download>
+        <i data-feather="download" aria-hidden="true"></i> Download Resume
+      </a>
+      {% endcomment %}
+    </div>
+
+    <div class="hero__links">
+      {% if site.author.github %}
+      <a href="{{ site.author.github }}" target="_blank" rel="noopener" aria-label="GitHub">
+        <i data-feather="github" aria-hidden="true"></i>
+      </a>
+      {% endif %}
+      {% if site.author.linkedin %}
+      <a href="{{ site.author.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i data-feather="linkedin" aria-hidden="true"></i>
+      </a>
+      {% endif %}
+      <a href="mailto:{{ site.author.email }}" aria-label="Email">
+        <i data-feather="mail" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="site-main" id="content">
+  <!-- About -->
+  <section id="about" class="section reveal" aria-label="About me">
+    <div class="container">
+      <h2 class="section__title">About Me</h2>
+      <p class="lead" data-search="{{ site.data.resume.profile.summary | strip }}">
+        {{ site.data.resume.profile.summary }}
+      </p>
+
+      <!-- Core Expertise chips -->
+      <div class="chips">
+        {% for group in site.data.resume.skills %}
+        {% assign group_text = group.items | join: ', ' %}
+        <span class="chip" data-search="{{ group.group | escape }}, {{ group_text | escape }}">{{ group.group }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section reveal" aria-label="Skills">
+    <div class="container">
+      <h2 class="section__title">Skills</h2>
+
+      <div class="grid grid--2">
+        {% for group in site.data.resume.skills %}
+        <article class="card searchable" data-search="{{ group.group | escape }}, {{ group.items | join: ', ' | escape }}">
+          <h3 class="card__title">{{ group.group }}</h3>
+          <ul class="list list--inline">
+            {% for item in group.items %}
+            <li class="chip chip--soft searchable" data-search="{{ item | escape }}">{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section reveal" aria-label="Professional Experience">
+    <div class="container">
+      <h2 class="section__title">Experience</h2>
+
+      <div class="stack">
+        {% for job in site.data.resume.experience %}
+        <article class="card searchable"
+                 data-search="{{ job.role | escape }}, {{ job.company | escape }}, {{ job.location | escape }}, {{ job.period | escape }}, {{ job.achievements | join: ', ' | escape }}">
+          <header class="card__header">
+            <h3 class="card__title">{{ job.role }} · {{ job.company }}</h3>
+            <div class="meta">
+              <span>{{ job.location }}</span>
+              <span>•</span>
+              <span>{{ job.period }}</span>
+            </div>
+          </header>
+          {% if job.achievements %}
+          <ul class="list list--bulleted">
+            {% for a in job.achievements %}
+            <li class="searchable" data-search="{{ a | escape }}">{{ a }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section reveal" aria-label="Education">
+    <div class="container">
+      <h2 class="section__title">Education</h2>
+
+      <div class="stack">
+        {% for edu in site.data.resume.education %}
+        <article class="card searchable"
+                 data-search="{{ edu.institution | escape }}, {{ edu.degree | escape }}, {{ edu.period | escape }}, {{ edu.coursework | join: ', ' | escape }}">
+          <h3 class="card__title">{{ edu.degree }}</h3>
+          <div class="meta">
+            <span>{{ edu.institution }}</span><span>•</span><span>{{ edu.period }}</span>
+          </div>
+          {% if edu.coursework %}
+          <ul class="list list--inline">
+            {% for c in edu.coursework %}
+            <li class="chip chip--soft searchable" data-search="{{ c | escape }}">{{ c }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="section reveal" aria-label="Professional Certifications">
+    <div class="container">
+      <h2 class="section__title">Certifications</h2>
+
+      <div class="grid grid--2">
+        {% for cert in site.data.resume.certifications %}
+        <article class="card searchable" data-search="{{ cert.name | escape }}, {{ cert.date | escape }}">
+          <h3 class="card__title">{{ cert.name }}</h3>
+          <div class="meta"><span>{{ cert.date }}</span></div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications" class="section reveal" aria-label="Publications & Research">
+    <div class="container">
+      <h2 class="section__title">Publications & Research</h2>
+
+      {% if site.data.resume.publications.journals %}
+      <h3 class="subhead">International Journals</h3>
+      <div class="stack">
+        {% for p in site.data.resume.publications.journals %}
+        <article class="card searchable"
+                 data-search="{{ p.title | escape }}, {{ p.venue | escape }}, {{ p.year | escape }}, {{ p.details | escape }}, {{ p.summary | escape }}">
+          <h4 class="card__title">{{ p.title }}</h4>
+          <div class="meta">
+            <span>{{ p.venue }}</span>
+            {% if p.year %}<span>•</span><span>{{ p.year }}</span>{% endif %}
+          </div>
+          {% if p.details %}<p class="muted">{{ p.details }}</p>{% endif %}
+          {% if p.summary %}<p>{{ p.summary }}</p>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if site.data.resume.publications.under_review %}
+      <h3 class="subhead">Under Review</h3>
+      <div class="stack">
+        {% for p in site.data.resume.publications.under_review %}
+        <article class="card searchable" data-search="{{ p.title | escape }}, {{ p.venue | escape }}, {{ p.status | escape }}">
+          <h4 class="card__title">{{ p.title }}</h4>
+          <div class="meta">
+            <span>{{ p.venue }}</span>
+            {% if p.status %}<span>•</span><span>{{ p.status }}</span>{% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if site.data.resume.publications.conferences %}
+      <h3 class="subhead">Conferences</h3>
+      <div class="stack">
+        {% for p in site.data.resume.publications.conferences %}
+        <article class="card searchable" data-search="{{ p.title | escape }}, {{ p.venue | escape }}, {{ p.date | escape }}, {{ p.contribution | escape }}">
+          <h4 class="card__title">{{ p.title }}</h4>
+          <div class="meta">
+            <span>{{ p.venue }}</span>
+            {% if p.date %}<span>•</span><span>{{ p.date }}</span>{% endif %}
+          </div>
+          {% if p.contribution %}<p>{{ p.contribution }}</p>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements" class="section reveal" aria-label="Key Achievements & Recognition">
+    <div class="container">
+      <h2 class="section__title">Key Achievements</h2>
+
+      <ul class="list list--bulleted">
+        {% for a in site.data.resume.achievements %}
+        <li class="searchable" data-search="{{ a | escape }}">{{ a }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section reveal" aria-label="Contact">
+    <div class="container">
+      <h2 class="section__title">Contact</h2>
+
+      <div class="contact">
+        <p>
+          <i data-feather="map-pin" aria-hidden="true"></i>
+          {{ site.author.location | default: site.data.resume.profile.location }}
+        </p>
+        {% if site.author.email %}
+        <p>
+          <i data-feather="mail" aria-hidden="true"></i>
+          <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+        </p>
+        {% endif %}
+        {% if site.author.linkedin %}
+        <p>
+          <i data-feather="linkedin" aria-hidden="true"></i>
+          <a href="{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+        {% endif %}
+        {% if site.author.github %}
+        <p>
+          <i data-feather="github" aria-hidden="true"></i>
+          <a href="{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
+        </p>
+        {% endif %}
+
+        {% if site.data.resume.meta and site.data.resume.meta.citations %}
+        <p class="muted"><i data-feather="book-open" aria-hidden="true"></i> {{ site.data.resume.meta.citations }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <div class="no-results" id="no-results" aria-live="polite" hidden>
+    No results found. Try a different search term.
+  </div>
+</div>

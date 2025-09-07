@@ -1,0 +1,46 @@
+title: "Kalyan Banerjee"
+tagline: "Senior Principal Engineer & Cloud Architect"
+description: "Resume-driven portfolio showcasing cloud architecture, AI/ML, and leadership experience."
+url: "https://kbanerjee.github.io"
+baseurl: ""
+lang: "en"
+
+author:
+  name: "Kalyan Banerjee"
+  email: "kbanerjee.ece@gmail.com"
+  phone: "+91-9663658534"
+  location: "Bengaluru, India"
+  linkedin: "https://linkedin.com/in/kbanerji"
+  github: "https://github.com/kbanerjee"
+
+# GitHub Pages-compatible plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Do not use a theme; custom layout/CSS instead
+theme: null
+
+# Permalinks not critical for single-page, but keep clean
+permalink: pretty
+
+# Exclusions to speed builds
+exclude:
+  - README.md
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

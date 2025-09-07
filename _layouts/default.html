@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}" />
+    <meta name="theme-color" content="#2B66B1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+
+    {% seo %}
+
+    <!-- Icons (Feather) -->
+    <script defer src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" role="banner">
+      <nav class="nav container" aria-label="Primary">
+        <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
+          <span class="brand__logo" aria-hidden="true">KB</span>
+          <span class="brand__text">{{ site.title }}</span>
+        </a>
+
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+          <span class="sr-only">Menu</span>
+          <i data-feather="menu"></i>
+        </button>
+
+        <div id="nav-menu" class="nav__menu">
+          <ul class="nav__links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+
+          <div class="nav__search">
+            <label for="site-search" class="sr-only">Search</label>
+            <input
+              id="site-search"
+              type="search"
+              placeholder="Search (Press /)"
+              autocomplete="off"
+              aria-label="Search this site"
+            />
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          © <span id="year"></span> {{ site.title }} • Built for performance, accessibility, and great UX.
+        </p>
+        <p class="footer-links">
+          {% if site.author.linkedin %}
+          <a href="{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+          {% endif %}
+          {% if site.author.github %}
+          <a href="{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
+          {% endif %}
+          {% if site.author.email %}
+          <a href="mailto:{{ site.author.email }}">Email</a>
+          {% endif %}
+        </p>
+      </div>
+    </footer>
+
+    <script defer src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <script defer src="{{ '/assets/js/search.js' | relative_url }}"></script>
+  </body>
+</html>

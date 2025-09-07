@@ -1,0 +1,139 @@
+profile:
+  name: "Kalyan Banerjee"
+  title: "Senior Principal Engineer & Cloud Architect"
+  location: "Bengaluru, Karnataka, India"
+  email: "kbanerjee.ece@gmail.com"
+  phone: "+91-9663658534"
+  linkedin: "https://linkedin.com/in/kbanerji"
+  github: "https://github.com/kbanerjee"
+  summary: |
+    Accomplished Software Architect with 10+ years of experience designing and delivering cloud-native enterprise applications on Oracle Cloud Infrastructure (OCI). Proven expertise in integrating advanced AI/ML capabilities (NLP, Computer Vision, Deep Learning) to solve complex business challenges and drive digital transformation initiatives. Distinguished academic contributor with 4 publications in top-tier international journals, 2 conference proceedings, and 26+ international citations. Expert in leading cross-functional teams, implementing DevOps practices, and architecting scalable solutions that reduce infrastructure costs by up to 30% while improving performance and security. Specialized in microservices architecture, CI/CD pipeline implementation, and cloud-native application development with demonstrated success in enterprise environments.
+
+skills:
+  - group: "AI & Machine Learning"
+    items:
+      - "Natural Language Processing (NLP)"
+      - "Computer Vision & Deep Learning"
+      - "Generative AI & Intelligent Automation"
+      - "Machine Learning Model Deployment"
+  - group: "Programming & Development"
+    items:
+      - "Python"
+      - "Java"
+      - "C"
+      - "Embedded C"
+      - "RESTful APIs & Microservices Design"
+      - "Database Design & Optimization"
+      - "Full-Stack Development"
+  - group: "Cloud Architecture & DevOps"
+    items:
+      - "Oracle Cloud Infrastructure (OCI)"
+      - "Serverless Architecture"
+      - "Docker"
+      - "Kubernetes"
+      - "Jenkins"
+      - "Git"
+      - "CI/CD Pipelines"
+  - group: "Methodologies & Leadership"
+    items:
+      - "Agile"
+      - "Scrum"
+      - "SAFe Framework"
+      - "Team Leadership & Mentoring"
+      - "Strategic Planning & Architecture Design"
+      - "Cross-functional Collaboration"
+
+experience:
+  - company: "Oracle Corporation"
+    role: "Senior Principal Engineer"
+    location: "Bengaluru, Karnataka, India"
+    period: "December 2014 – Present"
+    achievements:
+      - "Architected and deployed 15+ large-scale cloud-native applications on OCI using microservices architecture, serverless functions, and container orchestration, serving 100,000+ daily active users."
+      - "Implemented comprehensive CI/CD pipelines with automated testing and deployment strategies using Jenkins, Git, and Docker, achieving 40% reduction in deployment time and 25% improvement in code quality metrics."
+      - "Developed and deployed AI/ML-powered intelligent applications leveraging NLP and Computer Vision technologies, resulting in 25% increase in business process automation and saving 500+ person-hours annually."
+      - "Optimized application performance and security using Autonomous Database, OCI Vault, and API Gateway, achieving 30% improvement in response times and 20% reduction in infrastructure costs."
+      - "Led and mentored teams of 8–12 engineers on cloud-native development practices, DevOps methodologies, and Agile frameworks (Scrum, SAFe), resulting in 15% enhancement in team productivity and delivery timelines."
+      - "Designed resilient, fault-tolerant systems with 99.9% uptime SLA compliance across multiple geographic regions."
+  - company: "HCL Engineering and RnD Services"
+    role: "Avionics Systems Engineer"
+    location: "Bengaluru, Karnataka, India"
+    period: "January 2014 – December 2014"
+    achievements:
+      - "Integrated and validated critical avionic components in collaboration with Parker Aerospace and Genesys Aerosystems for commercial aircraft systems."
+      - "Designed and developed comprehensive testing frameworks and automation scripts using Embedded C, improving testing efficiency by 30% and reducing manual testing time by 25%."
+      - "Implemented automated testing processes for Airbus A319 MCDU (Multifunction Control Display Unit) ensuring compliance with stringent aviation safety standards (DO-178B/C)."
+  - company: "Indian Institute of Technology, Kanpur"
+    role: "Research Associate"
+    location: "Kanpur, Uttar Pradesh, India"
+    period: "August 2013 – January 2014"
+    achievements:
+      - "Contributed to the Agropedia project, a pioneering digital agriculture initiative aimed at improving accessibility to agricultural knowledge and resources for farmers across India."
+      - "Collaborated with multidisciplinary research teams including agricultural scientists, software engineers, and domain experts to achieve project milestones."
+      - "Provided technical expertise in software development and system integration, contributing to the successful completion and deployment of the platform."
+
+education:
+  - institution: "National Institute of Technology, Silchar"
+    degree: "Bachelor of Technology (B.Tech.) in Electronics & Communication Engineering"
+    period: "2008 – 2012"
+    coursework:
+      - "Digital Signal Processing"
+      - "Computer Networks"
+      - "Embedded Systems"
+      - "Data Structures & Algorithms"
+
+certifications:
+  - name: "Oracle Cloud Generative AI Professional"
+    date: "May 2024"
+  - name: "Oracle Cloud Database Migration and Integration"
+    date: "May 2023"
+  - name: "Oracle Cloud Infrastructure Architect Associate"
+    date: "March 2022"
+  - name: "Certified SAFe 5 Product Manager"
+    date: "February 2022"
+  - name: "Certified SAFe® 4 Practitioner"
+    date: "May 2019"
+  - name: "Oracle Database 12c: SQL and PL/SQL Fundamentals"
+    date: "March 2015"
+
+publications:
+  journals:
+    - title: "Comparing Artificial Neural Networks and Gaussian Model Mixtures in a Voice Conversion Framework"
+      venue: "Applied Soft Computing (Springer)"
+      year: 2012
+      details: "Volume 12, Issue 11, November 2012, Pages 3332–3342"
+      summary: "Comparative analysis of ANNs and GMMs for voice conversion system design using line spectral frequencies as feature vectors for nonlinear mapping of vocal tract characteristics. Demonstrated ANN-based models as viable alternatives to state-of-the-art GMM-based voice conversion systems."
+    - title: "A Pitch Synchronous Approach to Design Voice Conversion System using Source-Filter Correlation"
+      venue: "International Journal of Speech Technology (Springer)"
+      year: 2012
+      details: "Volume 15, Number 3, April 2012, Pages 419–431"
+      summary: "Novel pitch synchronous approach incorporating correlation between excitation signal and vocal tract characteristics using Support Vector Machine multiregressor (M-SVR) model; integrated epoch-based prosody modification with advanced residual selection for high-quality target synthesis."
+  under_review:
+    - title: "An Algorithm for Denoising Color Images Corrupted by Impulse Noise"
+      venue: "Digital Signal Processing (Springer)"
+      status: "Under Major Revision"
+    - title: "SVM Based Model for Spectral Mapping in Voice Conversion Framework"
+      venue: "IEEE Transactions on Signal Processing"
+      status: "Communicated"
+  conferences:
+    - title: "Topology Management on Mobile Ad-Hoc Networks"
+      venue: "IEEE International Conference on Circuit, Power and Computing Technologies"
+      date: "January 25, 2013"
+      contribution: "Developed MATLAB-based simulation tool presenting decentralized algorithm for adaptive node movement in MANETs using GPS-based positioning; demonstrated effectiveness in maintaining network topology through distributed neighbor coordination."
+    - title: "Removal of High-Density Impulse Noise from Color Images"
+      venue: "IEEE International Conference on Circuits, Power and Computing Technologies"
+      date: "January 24, 2013"
+      contribution: "Efficient single-pass restoration algorithm for color and grayscale images affected by fixed-value impulse noise (0,255); substantial improvement in PSNR and visual quality while preserving image edges."
+
+achievements:
+  - "Delivered 20+ cloud migration projects with zero downtime, managing budgets exceeding $2M annually."
+  - "Recognized as Technical Innovation Leader at Oracle for pioneering AI-driven automation solutions."
+  - "Speaker at 3 international technology conferences on cloud architecture and AI/ML implementation."
+  - "Mentor to 25+ junior engineers, with 90% promotion rate within 18 months of mentorship."
+  - "Led digital transformation initiatives resulting in 35% improvement in operational efficiency across business units."
+languages:
+  - "English (Fluent)"
+
+meta:
+  citations: "26+ international citations"
+  availability: "References available upon request"
