@@ -71,7 +71,7 @@ layout: default
     <div class="container">
       <h2 class="section__title">Skills</h2>
 
-      <div class="grid grid--2">
+      <div class="grid grid--auto">
         {% for group in site.data.resume.skills %}
         <article class="card searchable" data-search="{{ group.group | escape }}, {{ group.items | join: ', ' | escape }}">
           <h3 class="card__title">{{ group.group }}</h3>
@@ -147,7 +147,7 @@ layout: default
     <div class="container">
       <h2 class="section__title">Certifications</h2>
 
-      <div class="grid grid--2">
+      <div class="grid grid--auto">
         {% for cert in site.data.resume.certifications %}
         <article class="card searchable" data-search="{{ cert.name | escape }}, {{ cert.date | escape }}">
           <h3 class="card__title">{{ cert.name }}</h3>

@@ -56,24 +56,44 @@
       });
     }
 
-    // Scroll reveal animations
+    // Header shadow on scroll
+    const header = $(".site-header");
+    const applyScrolled = () => {
+      if (!header) return;
+      if (window.scrollY > 2) header.classList.add("is-scrolled");
+      else header.classList.remove("is-scrolled");
+    };
+    applyScrolled();
+    window.addEventListener("scroll", applyScrolled, { passive: true });
+
+    // Scroll reveal animations (with light stagger)
     const revealEls = $$(".reveal");
-    if ("IntersectionObserver" in window && revealEls.length) {
-      const revealObserver = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("reveal-in");
-              obs.unobserve(entry.target);
-            }
-          });
-        },
-        { root: null, rootMargin: "0px 0px -10% 0px", threshold: 0.1 }
-      );
-      revealEls.forEach((el) => revealObserver.observe(el));
-    } else {
-      // Fallback: show immediately
-      revealEls.forEach((el) => el.classList.add("reveal-in"));
+    if (revealEls.length) {
+      const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!prefersReduced) {
+        revealEls.forEach((el, i) => {
+          el.style.transitionDelay = Math.min(i * 60, 600) + "ms";
+        });
+      }
+
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("reveal-in");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { root: null, rootMargin: "0px 0px -10% 0px", threshold: 0.1 }
+        );
+        revealEls.forEach((el) => revealObserver.observe(el));
+      } else {
+        // Fallback: show immediately
+        revealEls.forEach((el) => el.classList.add("reveal-in"));
+      }
     }
 
     // Scroll spy for active nav link
