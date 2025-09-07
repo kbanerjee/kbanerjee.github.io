@@ -12,6 +12,17 @@ author:
   location: "Bengaluru, India"
   linkedin: "https://linkedin.com/in/kbanerji"
   github: "https://github.com/kbanerjee"
+  
+# Social / SEO enrichment
+twitter_username: "kbanerjee"
+social:
+  name: "Kalyan Banerjee"
+  links:
+    - "https://linkedin.com/in/kbanerji"
+    - "https://github.com/kbanerjee"
+
+# Open Graph default preview (place an image at assets/img/og-card.png)
+image: "/assets/img/og-card.png"
 
 # GitHub Pages-compatible plugins
 plugins:
