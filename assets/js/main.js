@@ -26,7 +26,7 @@
     const halo = $('[data-avatar-part="halo"]', avatar);
     const back = $('[data-avatar-part="back"]', avatar);
     const front = $('[data-avatar-part="front"]', avatar);
-    const eyes = $$("[data-avatar-eye]", avatar);
+    const eyes = $$("[data-avatar-pupil], [data-avatar-spark]", avatar);
 
     let rafId = 0;
     const target = { x: 0, y: 0 };
@@ -37,14 +37,15 @@
       const bounds = avatar.getBoundingClientRect();
       const centerX = bounds.left + bounds.width / 2;
       const centerY = bounds.top + bounds.height / 2;
-      const viewportScale = Math.max(window.innerWidth, window.innerHeight, 1) * 0.46;
-      target.x = clamp((event.clientX - centerX) / viewportScale, -1, 1);
-      target.y = clamp((event.clientY - centerY) / viewportScale, -1, 1);
+      const gazeScaleX = Math.max(bounds.width * 0.78, 220);
+      const gazeScaleY = Math.max(bounds.height * 0.78, 220);
+      target.x = clamp((event.clientX - centerX) / gazeScaleX, -1, 1);
+      target.y = clamp((event.clientY - centerY) / gazeScaleY, -1, 1);
     };
 
     const apply = () => {
-      current.x += (target.x - current.x) * 0.095;
-      current.y += (target.y - current.y) * 0.095;
+      current.x += (target.x - current.x) * 0.14;
+      current.y += (target.y - current.y) * 0.14;
 
       const x = current.x;
       const y = current.y;
@@ -58,7 +59,10 @@
       if (back) back.style.transform = `translate(${x * -5}px, ${y * -3.5}px)`;
       if (front) front.style.transform = `translate(${x * 2.2}px, ${y * 1.8}px)`;
       eyes.forEach((eye) => {
-        eye.style.transform = `translate(${x * 6}px, ${y * 4.5}px)`;
+        const isSpark = eye.hasAttribute("data-avatar-spark");
+        const gazeX = clamp(x * (isSpark ? 5 : 9), -8, 8);
+        const gazeY = clamp(y * (isSpark ? 3.5 : 6.5), -5.5, 5.5);
+        eye.style.transform = `translate(${gazeX}px, ${gazeY}px)`;
       });
 
       const settled =
