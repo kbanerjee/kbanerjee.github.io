@@ -461,8 +461,8 @@ svg { display: block; max-width: 100%; }
 .hero__grid {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.88fr);
+  gap: clamp(2rem, 4vw, 3.8rem);
   align-items: center;
 }
 
@@ -507,7 +507,7 @@ svg { display: block; max-width: 100%; }
 }
 
 .hero__visual {
-  min-height: 380px;
+  min-height: 450px;
   display: grid;
   place-items: center;
 }
@@ -521,7 +521,7 @@ svg { display: block; max-width: 100%; }
   --avatar-tilt-y: 0deg;
   --avatar-depth-x: 0px;
   --avatar-depth-y: 0px;
-  width: min(100%, 390px);
+  width: min(100%, 470px);
   aspect-ratio: 1;
   position: relative;
   display: grid;
@@ -552,9 +552,9 @@ svg { display: block; max-width: 100%; }
   inset: 0;
   border-radius: 50%;
   background:
-    conic-gradient(from 160deg, rgba(32,184,166,0.28), transparent 26%, rgba(241,169,59,0.24), transparent 54%, rgba(45,114,217,0.22), transparent 78%, rgba(32,184,166,0.28));
-  filter: blur(18px);
-  opacity: 0.72;
+    conic-gradient(from 160deg, rgba(32,184,166,0.34), transparent 26%, rgba(241,169,59,0.24), transparent 54%, rgba(45,114,217,0.28), transparent 78%, rgba(32,184,166,0.34));
+  filter: blur(20px);
+  opacity: 0.78;
   transform: translate3d(calc(var(--avatar-depth-x) * -0.65), calc(var(--avatar-depth-y) * -0.65), -42px) scale(0.92);
   animation: avatarHaloBreathe 5.8s ease-in-out infinite;
 }
@@ -1183,7 +1183,7 @@ mark.search-highlight {
   }
 
   .avatar {
-    width: min(82vw, 330px);
+    width: min(86vw, 380px);
   }
 
   .metric-grid {
