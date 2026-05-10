@@ -2,78 +2,130 @@
 layout: default
 ---
 
-<header class="hero section reveal" id="top" aria-label="Intro">
-  <div class="container">
-    <p class="eyebrow">Cloud Architecture · AI/ML · Leadership</p>
-    <h1 class="hero__title">
-      {{ site.data.resume.profile.name }}
-    </h1>
-    <p class="hero__subtitle">
-      {{ site.data.resume.profile.title }}
-    </p>
+<header class="hero section reveal" id="overview" aria-label="Overview">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="eyebrow">Cloud architecture / AI systems / Engineering leadership</p>
+      <h1 class="hero__title">{{ site.data.resume.profile.name }}</h1>
+      <p class="hero__subtitle">{{ site.data.resume.profile.title }}</p>
+      <p class="hero__summary" data-search="{{ site.data.resume.profile.summary | strip | escape }}">
+        I build resilient enterprise platforms on OCI, bring AI/ML into production workflows, and lead teams through complex cloud transformation programs.
+      </p>
 
-    <div class="hero__actions">
-      {% if site.author.linkedin %}
-      <a class="btn btn--primary" href="{{ site.author.linkedin }}" target="_blank" rel="noopener">
-        <i data-feather="linkedin" aria-hidden="true"></i> Connect on LinkedIn
-      </a>
-      {% endif %}
-      <a class="btn btn--ghost" href="mailto:{{ site.author.email }}">
-        <i data-feather="mail" aria-hidden="true"></i> Email Me
-      </a>
-      {% comment %}
-      To enable, place resume.pdf at repo root and uncomment:
-      <a class="btn btn--ghost" href="{{ '/resume.pdf' | relative_url }}" download>
-        <i data-feather="download" aria-hidden="true"></i> Download Resume
-      </a>
-      {% endcomment %}
+      <div class="hero__actions" aria-label="Primary actions">
+        {% if site.author.linkedin %}
+        <a class="btn btn--primary" href="{{ site.author.linkedin }}" target="_blank" rel="noopener">
+          <i data-feather="linkedin" aria-hidden="true"></i>
+          Connect on LinkedIn
+        </a>
+        {% endif %}
+        <a class="btn btn--secondary" href="mailto:{{ site.author.email }}">
+          <i data-feather="mail" aria-hidden="true"></i>
+          Email Me
+        </a>
+        {% if site.author.github %}
+        <a class="btn btn--ghost" href="{{ site.author.github }}" target="_blank" rel="noopener">
+          <i data-feather="github" aria-hidden="true"></i>
+          GitHub
+        </a>
+        {% endif %}
+      </div>
     </div>
 
-    <div class="hero__links">
-      {% if site.author.github %}
-      <a href="{{ site.author.github }}" target="_blank" rel="noopener" aria-label="GitHub">
-        <i data-feather="github" aria-hidden="true"></i>
-      </a>
-      {% endif %}
-      {% if site.author.linkedin %}
-      <a href="{{ site.author.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <i data-feather="linkedin" aria-hidden="true"></i>
-      </a>
-      {% endif %}
-      <a href="mailto:{{ site.author.email }}" aria-label="Email">
-        <i data-feather="mail" aria-hidden="true"></i>
-      </a>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="avatar" data-avatar>
+        <div class="avatar__halo" data-avatar-part="halo"></div>
+        <svg class="avatar__svg" viewBox="0 0 320 320" role="img" focusable="false">
+          <defs>
+            <linearGradient id="avatar-shell" x1="80" y1="50" x2="250" y2="285" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#E7EEF8" />
+              <stop offset="0.48" stop-color="#BFD1E8" />
+              <stop offset="1" stop-color="#7E99B9" />
+            </linearGradient>
+            <linearGradient id="avatar-face" x1="93" y1="78" x2="230" y2="246" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFFFFF" />
+              <stop offset="1" stop-color="#DDE8F4" />
+            </linearGradient>
+            <linearGradient id="avatar-accent" x1="90" y1="82" x2="238" y2="240" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#32D3B8" />
+              <stop offset="1" stop-color="#2D72D9" />
+            </linearGradient>
+            <filter id="avatar-shadow" x="35" y="28" width="250" height="270" filterUnits="userSpaceOnUse">
+              <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#16324A" flood-opacity="0.18" />
+            </filter>
+          </defs>
+
+          <g class="avatar__orbit" data-avatar-part="back">
+            <path d="M64 179C55 117 101 62 162 61c61-1 107 51 99 113" fill="none" stroke="#DCE7F4" stroke-width="14" stroke-linecap="round" />
+            <path d="M75 204c19 42 54 64 100 61 39-3 68-23 86-58" fill="none" stroke="#32D3B8" stroke-width="7" stroke-linecap="round" />
+            <circle cx="76" cy="91" r="7" fill="#F5B84B" />
+            <circle cx="253" cy="212" r="6" fill="#32D3B8" />
+          </g>
+
+          <g class="avatar__head" data-avatar-part="head" filter="url(#avatar-shadow)">
+            <path d="M159 43c52 0 95 37 104 88 3 19 2 48-5 73-7 24-18 45-33 60-17 17-38 25-65 25-28 0-50-9-66-26-15-15-26-37-32-62-6-25-7-52-3-71 10-50 49-87 100-87Z" fill="url(#avatar-shell)" />
+            <path d="M94 142c4-37 32-64 66-64 35 0 63 27 67 64l4 42c2 17-3 34-15 47-14 15-32 23-56 23s-43-8-56-23c-12-13-17-30-15-47l5-42Z" fill="url(#avatar-face)" />
+            <path d="M92 153c3-43 31-75 68-75 38 0 66 32 69 75" fill="none" stroke="url(#avatar-accent)" stroke-width="7" stroke-linecap="round" />
+            <path d="M113 119h28M179 119h28" stroke="#8097B4" stroke-width="5" stroke-linecap="round" opacity="0.55" />
+          </g>
+
+          <g class="avatar__eyes" data-avatar-part="eyes">
+            <g data-avatar-eye>
+              <rect x="106" y="144" width="48" height="32" rx="16" fill="#122335" />
+              <circle cx="130" cy="160" r="6" fill="#32D3B8" />
+              <circle cx="124" cy="154" r="2" fill="#FFFFFF" opacity="0.9" />
+            </g>
+            <g data-avatar-eye>
+              <rect x="166" y="144" width="48" height="32" rx="16" fill="#122335" />
+              <circle cx="190" cy="160" r="6" fill="#32D3B8" />
+              <circle cx="184" cy="154" r="2" fill="#FFFFFF" opacity="0.9" />
+            </g>
+          </g>
+
+          <g class="avatar__detail" data-avatar-part="front">
+            <path d="M140 205c9 8 31 8 40 0" fill="none" stroke="#53708F" stroke-width="6" stroke-linecap="round" />
+            <path d="M114 216h-8c-17 0-31-14-31-31v-27M206 216h8c17 0 31-14 31-31v-27" fill="none" stroke="#86A0BD" stroke-width="8" stroke-linecap="round" />
+            <path d="M130 248v28M190 248v28M118 276h84" stroke="#7D96B1" stroke-width="9" stroke-linecap="round" />
+            <circle cx="160" cy="232" r="6" fill="#F5B84B" />
+          </g>
+        </svg>
+        <div class="avatar__status">
+          <span class="avatar__pulse" aria-hidden="true"></span>
+          Systems online
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 <div class="site-main" id="content">
-  <!-- About -->
-  <section id="about" class="section reveal" aria-label="About me">
+  <section class="section section--compact reveal" aria-label="Impact snapshot">
     <div class="container">
-      <h2 class="section__title">About Me</h2>
-      <p class="lead" data-search="{{ site.data.resume.profile.summary | strip }}">
-        {{ site.data.resume.profile.summary }}
-      </p>
-
-      <!-- Core Expertise chips -->
-      <div class="chips">
-        {% for group in site.data.resume.skills %}
-        {% assign group_text = group.items | join: ', ' %}
-        <span class="chip" data-search="{{ group.group | escape }}, {{ group_text | escape }}">{{ group.group }}</span>
+      <div class="metric-grid">
+        {% for metric in site.data.resume.dashboard_metrics %}
+        <article class="metric-card searchable" data-search="{{ metric.value | escape }}, {{ metric.label | escape }}">
+          <span class="metric-card__value">{{ metric.value }}</span>
+          <span class="metric-card__label">{{ metric.label }}</span>
+        </article>
         {% endfor %}
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills" class="section reveal" aria-label="Skills">
+  <section id="expertise" class="section reveal" aria-label="Expertise dashboard">
     <div class="container">
-      <h2 class="section__title">Skills</h2>
+      <div class="section__header">
+        <p class="eyebrow">Expertise</p>
+        <h2 class="section__title">Technical Leadership Dashboard</h2>
+        <p class="section__intro">
+          A compact view of the areas recruiters and engineering leaders usually need to validate first: cloud architecture, AI delivery, software engineering, and team leadership.
+        </p>
+      </div>
 
-      <div class="grid grid--auto">
+      <div class="dashboard-grid">
         {% for group in site.data.resume.skills %}
-        <article class="card searchable" data-search="{{ group.group | escape }}, {{ group.items | join: ', ' | escape }}">
+        <article class="card expertise-card searchable" data-search="{{ group.group | escape }}, {{ group.items | join: ', ' | escape }}">
+          <div class="card__kicker">0{{ forloop.index }}</div>
           <h3 class="card__title">{{ group.group }}</h3>
           <ul class="list list--inline">
             {% for item in group.items %}
@@ -86,49 +138,58 @@ layout: default
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="section reveal" aria-label="Professional Experience">
+  <section id="experience" class="section reveal" aria-label="Professional experience">
     <div class="container">
-      <h2 class="section__title">Experience</h2>
+      <div class="section__header section__header--split">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h2 class="section__title">Enterprise Delivery Timeline</h2>
+        </div>
+        <p class="section__intro">
+          Cloud-native architecture, AI-enabled automation, and engineering leadership across enterprise and research environments.
+        </p>
+      </div>
 
-      <div class="stack">
+      <div class="timeline">
         {% for job in site.data.resume.experience %}
-        <article class="card searchable"
+        <article class="timeline__item searchable"
                  data-search="{{ job.role | escape }}, {{ job.company | escape }}, {{ job.location | escape }}, {{ job.period | escape }}, {{ job.achievements | join: ', ' | escape }}">
-          <header class="card__header">
-            <h3 class="card__title">{{ job.role }} · {{ job.company }}</h3>
-            <div class="meta">
-              <span>{{ job.location }}</span>
-              <span>•</span>
-              <span>{{ job.period }}</span>
-            </div>
-          </header>
-          {% if job.achievements %}
-          <ul class="list list--bulleted">
-            {% for a in job.achievements %}
-            <li class="searchable" data-search="{{ a | escape }}">{{ a }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
+          <div class="timeline__marker" aria-hidden="true"></div>
+          <div class="card timeline__card">
+            <header class="card__header">
+              <div>
+                <p class="meta">{{ job.period }}</p>
+                <h3 class="card__title">{{ job.role }}</h3>
+                <p class="card__subtitle">{{ job.company }} · {{ job.location }}</p>
+              </div>
+            </header>
+            {% if job.achievements %}
+            <ul class="list list--bulleted impact-list">
+              {% for a in job.achievements %}
+              <li class="searchable" data-search="{{ a | escape }}">{{ a }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
         </article>
         {% endfor %}
       </div>
     </div>
   </section>
 
-  <!-- Education -->
-  <section id="education" class="section reveal" aria-label="Education">
+  <section id="research" class="section reveal" aria-label="Credentials and research">
     <div class="container">
-      <h2 class="section__title">Education</h2>
+      <div class="section__header">
+        <p class="eyebrow">Credibility</p>
+        <h2 class="section__title">Credentials, Research, and Recognition</h2>
+      </div>
 
-      <div class="stack">
-        {% for edu in site.data.resume.education %}
-        <article class="card searchable"
-                 data-search="{{ edu.institution | escape }}, {{ edu.degree | escape }}, {{ edu.period | escape }}, {{ edu.coursework | join: ', ' | escape }}">
+      <div class="credential-layout">
+        <article class="card searchable" data-search="education, {{ site.data.resume.education | map: 'degree' | join: ', ' | escape }}, {{ site.data.resume.education | map: 'institution' | join: ', ' | escape }}, {{ site.data.resume.education | map: 'period' | join: ', ' | escape }}">
+          <div class="card__kicker">Education</div>
+          {% for edu in site.data.resume.education %}
           <h3 class="card__title">{{ edu.degree }}</h3>
-          <div class="meta">
-            <span>{{ edu.institution }}</span><span>•</span><span>{{ edu.period }}</span>
-          </div>
+          <p class="card__subtitle">{{ edu.institution }} · {{ edu.period }}</p>
           {% if edu.coursework %}
           <ul class="list list--inline">
             {% for c in edu.coursework %}
@@ -136,129 +197,90 @@ layout: default
             {% endfor %}
           </ul>
           {% endif %}
+          {% endfor %}
         </article>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
 
-  <!-- Certifications -->
-  <section id="certifications" class="section reveal" aria-label="Professional Certifications">
-    <div class="container">
-      <h2 class="section__title">Certifications</h2>
-
-      <div class="grid grid--auto">
-        {% for cert in site.data.resume.certifications %}
-        <article class="card searchable" data-search="{{ cert.name | escape }}, {{ cert.date | escape }}">
-          <h3 class="card__title">{{ cert.name }}</h3>
-          <div class="meta"><span>{{ cert.date }}</span></div>
-        </article>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
-  <!-- Publications -->
-  <section id="publications" class="section reveal" aria-label="Publications & Research">
-    <div class="container">
-      <h2 class="section__title">Publications & Research</h2>
-
-      {% if site.data.resume.publications.journals %}
-      <h3 class="subhead">International Journals</h3>
-      <div class="stack">
-        {% for p in site.data.resume.publications.journals %}
-        <article class="card searchable"
-                 data-search="{{ p.title | escape }}, {{ p.venue | escape }}, {{ p.year | escape }}, {{ p.details | escape }}, {{ p.summary | escape }}">
-          <h4 class="card__title">{{ p.title }}</h4>
-          <div class="meta">
-            <span>{{ p.venue }}</span>
-            {% if p.year %}<span>•</span><span>{{ p.year }}</span>{% endif %}
-          </div>
-          {% if p.details %}<p class="muted">{{ p.details }}</p>{% endif %}
-          {% if p.summary %}<p>{{ p.summary }}</p>{% endif %}
-        </article>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-      {% if site.data.resume.publications.under_review %}
-      <h3 class="subhead">Under Review</h3>
-      <div class="stack">
-        {% for p in site.data.resume.publications.under_review %}
-        <article class="card searchable" data-search="{{ p.title | escape }}, {{ p.venue | escape }}, {{ p.status | escape }}">
-          <h4 class="card__title">{{ p.title }}</h4>
-          <div class="meta">
-            <span>{{ p.venue }}</span>
-            {% if p.status %}<span>•</span><span>{{ p.status }}</span>{% endif %}
+        <article class="card searchable" data-search="{{ site.data.resume.certifications | map: 'name' | join: ', ' | escape }}, {{ site.data.resume.certifications | map: 'date' | join: ', ' | escape }}">
+          <div class="card__kicker">Certifications</div>
+          <div class="compact-list">
+            {% for cert in site.data.resume.certifications %}
+            <div class="compact-row searchable" data-search="{{ cert.name | escape }}, {{ cert.date | escape }}">
+              <span>{{ cert.name }}</span>
+              <span>{{ cert.date }}</span>
+            </div>
+            {% endfor %}
           </div>
         </article>
-        {% endfor %}
       </div>
-      {% endif %}
 
-      {% if site.data.resume.publications.conferences %}
-      <h3 class="subhead">Conferences</h3>
-      <div class="stack">
-        {% for p in site.data.resume.publications.conferences %}
-        <article class="card searchable" data-search="{{ p.title | escape }}, {{ p.venue | escape }}, {{ p.date | escape }}, {{ p.contribution | escape }}">
-          <h4 class="card__title">{{ p.title }}</h4>
-          <div class="meta">
-            <span>{{ p.venue }}</span>
-            {% if p.date %}<span>•</span><span>{{ p.date }}</span>{% endif %}
+      <div class="research-grid">
+        <div>
+          <h3 class="subhead">Selected Publications</h3>
+          <div class="stack">
+            {% for p in site.data.resume.publications.journals %}
+            <article class="card card--dense searchable"
+                     data-search="{{ p.title | escape }}, {{ p.venue | escape }}, {{ p.year | escape }}, {{ p.details | escape }}, {{ p.summary | escape }}">
+              <h4 class="card__title">{{ p.title }}</h4>
+              <p class="meta">{{ p.venue }}{% if p.year %} · {{ p.year }}{% endif %}</p>
+              {% if p.summary %}<p>{{ p.summary }}</p>{% endif %}
+            </article>
+            {% endfor %}
           </div>
-          {% if p.contribution %}<p>{{ p.contribution }}</p>{% endif %}
-        </article>
-        {% endfor %}
+        </div>
+
+        <div>
+          <h3 class="subhead">Conferences and Recognition</h3>
+          <div class="stack">
+            {% for p in site.data.resume.publications.conferences %}
+            <article class="card card--dense searchable" data-search="{{ p.title | escape }}, {{ p.venue | escape }}, {{ p.date | escape }}, {{ p.contribution | escape }}">
+              <h4 class="card__title">{{ p.title }}</h4>
+              <p class="meta">{{ p.venue }}{% if p.date %} · {{ p.date }}{% endif %}</p>
+            </article>
+            {% endfor %}
+            <article class="card card--dense searchable" data-search="{{ site.data.resume.achievements | join: ', ' | escape }}">
+              <h4 class="card__title">Key Achievements</h4>
+              <ul class="list list--bulleted">
+                {% for a in site.data.resume.achievements %}
+                <li class="searchable" data-search="{{ a | escape }}">{{ a }}</li>
+                {% endfor %}
+              </ul>
+            </article>
+          </div>
+        </div>
       </div>
-      {% endif %}
     </div>
   </section>
 
-  <!-- Achievements -->
-  <section id="achievements" class="section reveal" aria-label="Key Achievements & Recognition">
+  <section id="contact" class="section section--contact reveal" aria-label="Contact">
     <div class="container">
-      <h2 class="section__title">Key Achievements</h2>
-
-      <ul class="list list--bulleted">
-        {% for a in site.data.resume.achievements %}
-        <li class="searchable" data-search="{{ a | escape }}">{{ a }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section reveal" aria-label="Contact">
-    <div class="container">
-      <h2 class="section__title">Contact</h2>
-
-      <div class="contact">
-        <p>
-          <i data-feather="map-pin" aria-hidden="true"></i>
-          {{ site.author.location | default: site.data.resume.profile.location }}
-        </p>
-        {% if site.author.email %}
-        <p>
-          <i data-feather="mail" aria-hidden="true"></i>
-          <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
-        </p>
-        {% endif %}
-        {% if site.author.linkedin %}
-        <p>
-          <i data-feather="linkedin" aria-hidden="true"></i>
-          <a href="{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-        </p>
-        {% endif %}
-        {% if site.author.github %}
-        <p>
-          <i data-feather="github" aria-hidden="true"></i>
-          <a href="{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
-        </p>
-        {% endif %}
-
-        {% if site.data.resume.meta and site.data.resume.meta.citations %}
-        <p class="muted"><i data-feather="book-open" aria-hidden="true"></i> {{ site.data.resume.meta.citations }}</p>
-        {% endif %}
+      <div class="contact-panel">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 class="section__title">Let us connect on cloud, AI, and platform leadership.</h2>
+          <p class="section__intro">
+            Based in {{ site.author.location | default: site.data.resume.profile.location }}. Open to conversations where enterprise architecture, AI delivery, and engineering execution matter.
+          </p>
+        </div>
+        <div class="contact-actions">
+          {% if site.author.email %}
+          <a class="btn btn--primary" href="mailto:{{ site.author.email }}">
+            <i data-feather="mail" aria-hidden="true"></i>
+            {{ site.author.email }}
+          </a>
+          {% endif %}
+          {% if site.author.linkedin %}
+          <a class="btn btn--secondary" href="{{ site.author.linkedin }}" target="_blank" rel="noopener">
+            <i data-feather="linkedin" aria-hidden="true"></i>
+            LinkedIn
+          </a>
+          {% endif %}
+          {% if site.author.github %}
+          <a class="btn btn--ghost" href="{{ site.author.github }}" target="_blank" rel="noopener">
+            <i data-feather="github" aria-hidden="true"></i>
+            GitHub
+          </a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </section>

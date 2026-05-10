@@ -5,8 +5,8 @@
  * - Highlights matching text (respects prefers-reduced-motion for minimal DOM churn)
  *
  * Structure assumptions from layout:
- * - Cards across sections have: .card.searchable[data-search="..."]
- * - List items like achievements have: li.searchable[data-search="..."] (outside of .card)
+ * - Major searchable units use .searchable[data-search="..."]
+ * - Cards, metrics, timeline items, compact rows, and standalone list items can be filtered
  * - Copy blocks (e.g., About summary, chips) have data-search for highlighting only (not filtered)
  */
 
@@ -88,9 +88,10 @@
 
     if (!input) return;
 
-    // Units to filter:
-    // - Top-level cards
-    const cardUnits = $$(".card.searchable").map((el) => ({
+    // Units to filter: top-level dashboard items plus compact rows.
+    const filterUnitsList = $$(
+      ".card.searchable, .metric-card.searchable, .timeline__item.searchable, .compact-row.searchable"
+    ).map((el) => ({
       el,
       get text() {
         return normalize(el.getAttribute("data-search") || el.innerText || "");
@@ -103,8 +104,8 @@
       },
     }));
 
-    // - Standalone list items (outside cards), e.g., achievements
-    const liUnits = $$("li.searchable").filter((el) => !el.closest(".card")).map((el) => ({
+    // Standalone list items outside primary filter units.
+    const liUnits = $$("li.searchable").filter((el) => !el.closest(".card, .timeline__item")).map((el) => ({
       el,
       get text() {
         return normalize(el.getAttribute("data-search") || el.innerText || "");
@@ -133,7 +134,7 @@
       const tokens = tokenize(q);
 
       // Reset visibility
-      [...cardUnits, ...liUnits].forEach((u) => u.show());
+      [...filterUnitsList, ...liUnits].forEach((u) => u.show());
 
       if (!tokens.length) {
         // Clear highlights and no-results
@@ -147,8 +148,8 @@
 
       let matches = 0;
 
-      // Filter cards
-      cardUnits.forEach((u) => {
+      // Filter dashboard units
+      filterUnitsList.forEach((u) => {
         const ok = tokens.every((t) => u.text.includes(t));
         if (ok) {
           matches++;

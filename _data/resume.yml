@@ -9,6 +9,16 @@ profile:
   summary: |
     Accomplished Software Architect with 10+ years of experience designing and delivering cloud-native enterprise applications on Oracle Cloud Infrastructure (OCI). Proven expertise in integrating advanced AI/ML capabilities (NLP, Computer Vision, Deep Learning) to solve complex business challenges and drive digital transformation initiatives. Distinguished academic contributor with 4 publications in top-tier international journals, 2 conference proceedings, and 26+ international citations. Expert in leading cross-functional teams, implementing DevOps practices, and architecting scalable solutions that reduce infrastructure costs by up to 30% while improving performance and security. Specialized in microservices architecture, CI/CD pipeline implementation, and cloud-native application development with demonstrated success in enterprise environments.
 
+dashboard_metrics:
+  - value: "10+"
+    label: "Years building enterprise systems"
+  - value: "15+"
+    label: "Cloud-native applications on OCI"
+  - value: "100K+"
+    label: "Daily active users served"
+  - value: "26+"
+    label: "International research citations"
+
 skills:
   - group: "AI & Machine Learning"
     items:
