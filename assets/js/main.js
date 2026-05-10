@@ -28,37 +28,37 @@
     const front = $('[data-avatar-part="front"]', avatar);
     const eyes = $$("[data-avatar-eye]", avatar);
 
-    let bounds = null;
     let rafId = 0;
-    let active = false;
     const target = { x: 0, y: 0 };
     const current = { x: 0, y: 0 };
+    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
     const setTargetFromPointer = (event) => {
-      if (!bounds) bounds = avatar.getBoundingClientRect();
-      const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
-      const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
-      target.x = Math.max(-1, Math.min(1, x));
-      target.y = Math.max(-1, Math.min(1, y));
+      const bounds = avatar.getBoundingClientRect();
+      const centerX = bounds.left + bounds.width / 2;
+      const centerY = bounds.top + bounds.height / 2;
+      const viewportScale = Math.max(window.innerWidth, window.innerHeight, 1) * 0.46;
+      target.x = clamp((event.clientX - centerX) / viewportScale, -1, 1);
+      target.y = clamp((event.clientY - centerY) / viewportScale, -1, 1);
     };
 
     const apply = () => {
-      current.x += (target.x - current.x) * 0.12;
-      current.y += (target.y - current.y) * 0.12;
+      current.x += (target.x - current.x) * 0.095;
+      current.y += (target.y - current.y) * 0.095;
 
       const x = current.x;
       const y = current.y;
-      avatar.style.setProperty("--avatar-tilt-x", `${x * 4.2}deg`);
-      avatar.style.setProperty("--avatar-tilt-y", `${y * -3.2}deg`);
-      avatar.style.setProperty("--avatar-depth-x", `${x * 5}px`);
-      avatar.style.setProperty("--avatar-depth-y", `${y * 4}px`);
+      avatar.style.setProperty("--avatar-tilt-x", `${x * 3.4}deg`);
+      avatar.style.setProperty("--avatar-tilt-y", `${y * -2.6}deg`);
+      avatar.style.setProperty("--avatar-depth-x", `${x * 4}px`);
+      avatar.style.setProperty("--avatar-depth-y", `${y * 3.4}px`);
 
-      if (shell) shell.style.transform = `rotate(${x * 1.4}deg) translate(${x * 1.2}px, ${y * 1.4}px)`;
-      if (halo) halo.style.transform = `translate3d(${x * -7}px, ${y * -7}px, -42px) scale(0.92)`;
-      if (back) back.style.transform = `translate(${x * -4}px, ${y * -3}px)`;
-      if (front) front.style.transform = `translate(${x * 2.5}px, ${y * 2}px)`;
+      if (shell) shell.style.transform = `rotate(${x * 1.1}deg) translate(${x * 1}px, ${y * 1.2}px)`;
+      if (halo) halo.style.transform = `translate3d(${x * -8}px, ${y * -8}px, -42px) scale(0.92)`;
+      if (back) back.style.transform = `translate(${x * -5}px, ${y * -3.5}px)`;
+      if (front) front.style.transform = `translate(${x * 2.2}px, ${y * 1.8}px)`;
       eyes.forEach((eye) => {
-        eye.style.transform = `translate(${x * 4.2}px, ${y * 3.2}px)`;
+        eye.style.transform = `translate(${x * 6}px, ${y * 4.5}px)`;
       });
 
       const settled =
@@ -67,7 +67,7 @@
         Math.abs(target.x) < 0.002 &&
         Math.abs(target.y) < 0.002;
 
-      if (active || !settled) {
+      if (!settled) {
         rafId = requestAnimationFrame(apply);
       } else {
         rafId = 0;
@@ -80,37 +80,107 @@
 
     const isIntentionalPointer = (event) =>
       !event.pointerType || event.pointerType === "mouse" || event.pointerType === "pen";
+    const isTrackingEligible = () =>
+      window.innerWidth > 700 &&
+      (!window.matchMedia || window.matchMedia("(hover: hover) and (pointer: fine)").matches);
 
-    avatar.addEventListener("pointerenter", (event) => {
-      if (!isIntentionalPointer(event)) return;
-      active = true;
-      bounds = avatar.getBoundingClientRect();
+    document.addEventListener("pointermove", (event) => {
+      if (!isIntentionalPointer(event) || !isTrackingEligible()) return;
       setTargetFromPointer(event);
       start();
-    });
+    }, { passive: true });
 
-    avatar.addEventListener("pointermove", (event) => {
-      if (!active || !isIntentionalPointer(event)) return;
-      setTargetFromPointer(event);
-      start();
-    });
-
-    avatar.addEventListener("pointerleave", (event) => {
-      if (!isIntentionalPointer(event)) return;
-      active = false;
-      bounds = null;
+    document.addEventListener("pointerleave", () => {
       target.x = 0;
       target.y = 0;
       start();
     });
 
-    window.addEventListener(
-      "resize",
-      () => {
-        bounds = null;
+    document.addEventListener("mouseout", (event) => {
+      if (event.relatedTarget) return;
+      target.x = 0;
+      target.y = 0;
+      start();
+    });
+
+    window.addEventListener("blur", () => {
+      target.x = 0;
+      target.y = 0;
+      start();
+    });
+  }
+
+  function initMetricCountUp() {
+    const metricValues = $$(".metric-card__value");
+    if (!metricValues.length) return;
+
+    const prefersReduced =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const parseMetric = (text) => {
+      const trimmed = text.trim();
+      const match = trimmed.match(/^(\d+(?:\.\d+)?)([A-Za-z]*)(.*)$/);
+      if (!match) return null;
+      return {
+        target: Number(match[1]),
+        suffix: `${match[2] || ""}${match[3] || ""}`,
+        decimals: match[1].includes(".") ? match[1].split(".")[1].length : 0,
+      };
+    };
+
+    const animateValue = (el) => {
+      if (el.dataset.counted === "true") return;
+      const metric = parseMetric(el.dataset.metricValue || el.textContent || "");
+      if (!metric) return;
+
+      el.dataset.counted = "true";
+      el.closest(".metric-card")?.classList.add("is-counting");
+
+      if (prefersReduced) {
+        el.textContent = `${metric.target.toFixed(metric.decimals)}${metric.suffix}`;
+        return;
+      }
+
+      const duration = 950;
+      const startTime = performance.now();
+      const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+      const tick = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = metric.target * easeOut(progress);
+        el.textContent = `${value.toFixed(metric.decimals)}${metric.suffix}`;
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = `${metric.target.toFixed(metric.decimals)}${metric.suffix}`;
+        }
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    metricValues.forEach((el) => {
+      el.dataset.metricValue = el.textContent.trim();
+      if (!prefersReduced) el.textContent = `0${parseMetric(el.dataset.metricValue)?.suffix || ""}`;
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      metricValues.forEach(animateValue);
+      return;
+    }
+
+    const metricObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateValue(entry.target);
+          obs.unobserve(entry.target);
+        });
       },
-      { passive: true }
+      { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.45 }
     );
+
+    metricValues.forEach((el) => metricObserver.observe(el));
   }
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -174,7 +244,7 @@
 
       if (!prefersReduced) {
         revealEls.forEach((el, i) => {
-          el.style.transitionDelay = Math.min(i * 60, 600) + "ms";
+          el.style.transitionDelay = Math.min(i * 70, 520) + "ms";
         });
       }
 
@@ -184,6 +254,7 @@
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.classList.add("reveal-in");
+                entry.target.classList.add("is-visible");
                 obs.unobserve(entry.target);
               }
             });
@@ -193,8 +264,29 @@
         revealEls.forEach((el) => revealObserver.observe(el));
       } else {
         // Fallback: show immediately
-        revealEls.forEach((el) => el.classList.add("reveal-in"));
+        revealEls.forEach((el) => el.classList.add("reveal-in", "is-visible"));
       }
+    }
+
+    const motionEls = $$(".metric-card, .card, .timeline__item, .contact-panel");
+    if (motionEls.length && "IntersectionObserver" in window) {
+      const motionObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            entry.target.closest(".timeline")?.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          });
+        },
+        { root: null, rootMargin: "0px 0px -6% 0px", threshold: 0.18 }
+      );
+      motionEls.forEach((el, i) => {
+        el.style.setProperty("--motion-index", String(i % 6));
+        motionObserver.observe(el);
+      });
+    } else {
+      motionEls.forEach((el) => el.classList.add("is-visible"));
     }
 
     // Scroll spy for active nav link
@@ -280,5 +372,6 @@
     });
 
     initAvatar();
+    initMetricCountUp();
   });
 })();
